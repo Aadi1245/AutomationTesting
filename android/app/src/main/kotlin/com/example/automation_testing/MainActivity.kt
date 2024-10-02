@@ -1,4 +1,4 @@
-package com.example.automation_testing
+package com.itgeeks.mobilify
 
 import io.flutter.embedding.android.FlutterActivity
 
