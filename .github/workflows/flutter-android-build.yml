@@ -41,8 +41,8 @@ jobs:
         run: |
           flutter build apk --release --no-shrink
 
-      - name: Upload APK
-        uses: actions/upload-artifact@v3
-        with:
-          name: release-apk
-          path: build/app/outputs/flutter-apk/app-release.apk
+      # - name: Upload APK
+      #   uses: actions/upload-artifact@v3
+      #   with:
+      #     name: release-apk
+      #     path: build/app/outputs/flutter-apk/app-release.apk
