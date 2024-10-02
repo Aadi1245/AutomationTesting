@@ -30,8 +30,8 @@
 #       - name: Set up Java 11
 #         uses: actions/setup-java@v2
 #         with:
-#           java-version: '11'
-#           distribution: 'adopt'
+          # java-version: '11'
+          # distribution: 'adopt'
 
 #       - name: Set up Flutter
 #         uses: subosito/flutter-action@v2
@@ -68,6 +68,8 @@
 
 
 
+
+
 name: Build Release APK
 
 on:
@@ -87,6 +89,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '11'
+          distribution: 'adopt'
 
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
