@@ -24,6 +24,10 @@ jobs:
         # with:
         #   flutter-version: 'stable'  # Ensure you're using the stable channel
 
+      - name: Update Kotlin version
+        run: |
+          (Get-Content android/build.gradle) -replace "ext.kotlin_version = '.*?'", "ext.kotlin_version = '1.8.0'" | Set-Content android/build.gradle
+
       - name: Decode keystore
         run: |
           [System.IO.File]::WriteAllBytes("android/app/your-keystore.jks", [System.Convert]::FromBase64String("${{ secrets.KEYSTORE_BASE64 }}"))
