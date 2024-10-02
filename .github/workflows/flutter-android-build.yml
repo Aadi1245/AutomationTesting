@@ -27,29 +27,29 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
 
-      - name: Set up Flutter
-        uses: subosito/flutter-action@v2
-        # with:
-        #   flutter-version: 'stable'  # Ensure you're using the stable channel
+      # - name: Set up Flutter
+      #   uses: subosito/flutter-action@v2
+      #   # with:
+      #   #   flutter-version: 'stable'  # Ensure you're using the stable channel
 
-      - name: Flutter doctor
-        run: flutter doctor
+      # - name: Flutter doctor
+      #   run: flutter doctor
         
-      - name: Flutter clean
-        run: flutter clean
+      # - name: Flutter clean
+      #   run: flutter clean
 
-      - name: Flutter dependencies upgrade
-        run: flutter pub upgrade --major-versions
+      # - name: Flutter dependencies upgrade
+      #   run: flutter pub upgrade --major-versions
 
       - name: Install Flutter dependencies
         run: flutter pub get
 
       - name: Build Android App Bundle
-        env:
-          KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
-          KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
-          KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
-          ANDROID_KEYSTORE_PATH: ${{ github.workspace }}/android/my-release-key.jks
+        # env:
+          # KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          # KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          # KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+          # ANDROID_KEYSTORE_PATH: ${{ github.workspace }}/android/my-release-key.jks
         run: flutter build appbundle --release
 
       - name: Upload AAB
