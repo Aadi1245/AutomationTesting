@@ -49,7 +49,7 @@ jobs:
           KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
           KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
           KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
-          ANDROID_KEYSTORE_PATH: ${{ github.workspace }}/android/app/my-release-key.jks
+          ANDROID_KEYSTORE_PATH: ${{ github.workspace }}/android/my-release-key.jks
         run: flutter build appbundle --release
 
       - name: Upload AAB
