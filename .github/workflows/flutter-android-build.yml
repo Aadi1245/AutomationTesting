@@ -46,7 +46,7 @@ jobs:
         run: flutter pub get
 
       - name: Build Android App Bundle
-        # env:
+        env:
           KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
           KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
           KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
