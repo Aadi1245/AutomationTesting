@@ -60,7 +60,7 @@ android {
     }
 
         def keystoreProperties = new Properties()
-    def keystorePropertiesFile = rootProject.file("keystore.properties")
+    def keystorePropertiesFile = rootProject.file("key.properties")
 
     // Check if the keystore.properties file exists for local builds
     if (keystorePropertiesFile.exists()) {
@@ -78,7 +78,7 @@ android {
             // if (project.hasProperty('ANDROID_KEYSTORE_PASSWORD')) {
             keyAlias keystoreProperties['keyAlias']
             keyPassword keystoreProperties['keyPassword']
-            storeFile file(keystoreProperties['storeFile'])
+            storeFile file(keystoreProperties['storeFile']) // This is where the path issue occurs
             storePassword keystoreProperties['storePassword']
             // }
         }
