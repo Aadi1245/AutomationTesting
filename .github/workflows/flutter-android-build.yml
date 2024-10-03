@@ -26,10 +26,15 @@ jobs:
       - name: Kotlin version check
         run: kotlin -version
 
+      - name: Show updated build.gradle
+        run: cat android/build.gradle
 
       - name: Update Kotlin version in build.gradle
         run: |
           (Get-Content android/build.gradle) -replace 'ext.kotlin_version = "[0-9.]*"', 'ext.kotlin_version = "2.0.0"' | Set-Content android/build.gradle
+
+      - name: Show updated build.gradle
+        run: cat android/build.gradle
 
       - name: Kotlin version check
         run: kotlin -version
