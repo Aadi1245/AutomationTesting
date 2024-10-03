@@ -38,6 +38,9 @@ jobs:
 
       # - name: Kotlin version check
       #   run: kotlin -version
+      
+      - name: Install dependencies
+        run: flutter pub get
 
       - name: Decode and setup keystore
         env:
@@ -54,8 +57,6 @@ jobs:
       #     echo "KEY_PASSWORD=${{ secrets.KEY_PASSWORD }}" >> $GITHUB_ENV
 
 
-      - name: Install dependencies
-        run: flutter pub get
 
       - name: Build APK
         run: |
