@@ -23,31 +23,31 @@ jobs:
         uses: subosito/flutter-action@v2
         # with:
         #   flutter-version: 'stable'  # Ensure you're using the stable channel
-      - name: Kotlin version check
-        run: kotlin -version
+      # - name: Kotlin version check
+      #   run: kotlin -version
 
-      - name: Show updated build.gradle
-        run: cat android/build.gradle
+      # - name: Show updated build.gradle
+      #   run: cat android/build.gradle
 
-      - name: Update Kotlin version in build.gradle
-        run: |
-          (Get-Content android/build.gradle) -replace 'ext.kotlin_version = "[0-9.]*"', 'ext.kotlin_version = "2.0.0"' | Set-Content android/build.gradle
+      # - name: Update Kotlin version in build.gradle
+      #   run: |
+      #     (Get-Content android/build.gradle) -replace 'ext.kotlin_version = "[0-9.]*"', 'ext.kotlin_version = "2.0.0"' | Set-Content android/build.gradle
 
-      - name: Show updated build.gradle
-        run: cat android/build.gradle
+      # - name: Show updated build.gradle
+      #   run: cat android/build.gradle
 
-      - name: Kotlin version check
-        run: kotlin -version
+      # - name: Kotlin version check
+      #   run: kotlin -version
 
-      - name: Decode keystore
-        run: |
-          [System.IO.File]::WriteAllBytes("android/app/your-keystore.jks", [System.Convert]::FromBase64String("${{ secrets.KEYSTORE_BASE64 }}"))
+      # - name: Decode keystore
+      #   run: |
+      #     [System.IO.File]::WriteAllBytes("android/app/your-keystore.jks", [System.Convert]::FromBase64String("${{ secrets.KEYSTORE_BASE64 }}"))
 
-      - name: Set up environment variables
-        run: |
-          echo "KEYSTORE_PASSWORD=${{ secrets.KEYSTORE_PASSWORD }}" >> $GITHUB_ENV
-          echo "KEY_ALIAS=${{ secrets.KEY_ALIAS }}" >> $GITHUB_ENV
-          echo "KEY_PASSWORD=${{ secrets.KEY_PASSWORD }}" >> $GITHUB_ENV
+      # - name: Set up environment variables
+      #   run: |
+      #     echo "KEYSTORE_PASSWORD=${{ secrets.KEYSTORE_PASSWORD }}" >> $GITHUB_ENV
+      #     echo "KEY_ALIAS=${{ secrets.KEY_ALIAS }}" >> $GITHUB_ENV
+      #     echo "KEY_PASSWORD=${{ secrets.KEY_PASSWORD }}" >> $GITHUB_ENV
 
       - name: Install dependencies
         run: flutter pub get
