@@ -24,9 +24,10 @@ jobs:
         # with:
         #   flutter-version: 'stable'  # Ensure you're using the stable channel
 
-      - name: Update Kotlin version
+       - name: Update Kotlin version in build.gradle
         run: |
-          (Get-Content android/build.gradle) -replace "ext.kotlin_version = '.*?'", "ext.kotlin_version = '2.0.0'" | Set-Content android/build.gradle
+          sed -i 's/ext.kotlin_version = "[0-9.]*"/ext.kotlin_version = "1.9.10"/' android/build.gradle
+
 
       - name: Decode keystore
         run: |
